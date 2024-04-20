@@ -31,7 +31,7 @@ note_number = 2
 [node name="Sprite2D" parent="NotePickerRight" index="1"]
 modulate = Color(1, 0.227451, 0.2, 1)
 
-[node name="BarConductor" type="Node2D" parent="."]
+[node name="NoteConductor" type="Node2D" parent="."]
 
 [editable path="NotePickerLeft"]
 [editable path="NotePickerMiddle"]
