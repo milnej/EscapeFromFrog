@@ -7,7 +7,9 @@ var _run_time := 0.0
 var _score := 0
 
 func _ready() -> void:
-	SignalBus.connect("note_collected", _add_score)
+	pass
+	# Commented for now since new scene breaks
+	#SignalBus.connect("note_collected", _add_score)
 
 func _process(delta: float) -> void:
 	_run_time += delta
@@ -18,7 +20,7 @@ func _process(delta: float) -> void:
 func _add_score(points: int) -> void:
 	_score += points
 	pass
-	
+
 func _update_leaderboard():
 	
 	pass
