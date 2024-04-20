@@ -1,9 +1,72 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=16 format=3 uid="uid://dm4fl00uijsbt"]
 
 [ext_resource type="Script" path="res://Manager.gd" id="1_muoqn"]
 [ext_resource type="Texture2D" uid="uid://c2agobqvkvly2" path="res://Resources/Sprites/Blue.png" id="2_m43vk"]
 [ext_resource type="Script" path="res://Scene/Beetle.gd" id="2_vfcls"]
+[ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vcnx"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(43, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg8it"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(0, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u122d"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(86, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvsyq"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(129, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpsjt"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(172, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdne5"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(215, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqfds"]
+atlas = ExtResource("3_rg1yr")
+region = Rect2(258, 0, 43, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wpxy"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vcnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg8it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u122d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvsyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpsjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdne5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqfds")
+}],
+"loop": true,
+"name": &"running",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3a4"]
 size = Vector2(32, 18)
@@ -65,7 +128,16 @@ scale = Vector2(1.54995, 3.13191)
 scale = Vector2(5, 5)
 script = ExtResource("2_vfcls")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beetle"]
+texture_filter = 1
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_3wpxy")
+animation = &"running"
+autoplay = "running"
+frame_progress = 0.224654
+
 [node name="Sprite2D" type="Sprite2D" parent="Beetle"]
+visible = false
 texture_filter = 1
 texture = ExtResource("2_m43vk")
 

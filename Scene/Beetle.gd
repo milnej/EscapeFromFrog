@@ -47,10 +47,13 @@ func _process(delta):
 	match row:
 		ROW.TOP:
 			position = top_position
+			$AnimatedSprite2D.flip_v = true
 		ROW.MIDDLE:
 			position = middle_position
+			$AnimatedSprite2D.flip_v = false
 		ROW.BOTTOM:
 			position = bottom_position
+			$AnimatedSprite2D.flip_v = false
 		_:
 			pass
 	
