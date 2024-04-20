@@ -19,4 +19,6 @@ func _add_score(points: int) -> void:
 	_score += points
 	pass
 	
-
+func _update_leaderboard():
+	
+	pass
