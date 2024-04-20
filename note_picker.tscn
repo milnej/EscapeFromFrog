@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://clg447qeer1wv"]
+
+[ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="1_1a4nn"]
+[ext_resource type="Script" path="res://Scripts/note_picker.gd" id="1_57vm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxivr"]
+size = Vector2(64, 64)
+
+[node name="NotePicker" type="Node2D"]
+z_index = 1
+script = ExtResource("1_57vm4")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_mxivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.882353, 0.262745, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1a4nn")
