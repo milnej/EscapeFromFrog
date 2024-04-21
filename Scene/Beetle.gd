@@ -24,8 +24,11 @@ func _ready():
 	_set_sprite()
 
 func _set_sprite():
+	if (!$AnimatedSprite2D.is_playing()):
+		$AnimatedSprite2D.animation = "running"
 	if (is_attacking):
 		beetle_note_picker.scale = Vector2(0.8, 0.8)
+		$AnimatedSprite2D.animation = "attack"
 	else:
 		beetle_note_picker.scale = Vector2(1.0, 1.0)
 	match row:
@@ -40,6 +43,7 @@ func _set_sprite():
 			$AnimatedSprite2D.flip_v = false
 		_:
 			pass
+	$AnimatedSprite2D.play()
 
 func _process_input():
 	if Input.is_action_just_pressed("beetle_up"):
@@ -61,8 +65,8 @@ func _process_input():
 	elif (Input.is_action_just_pressed("beetle_attack") and not is_attacking):
 		is_attacking = true
 		curr_attack_length = 0.0
-	elif Input.is_action_just_released("beetle_attack"):
-		is_attacking = false
+	#elif Input.is_action_just_released("beetle_attack"):
+		#is_attacking = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
