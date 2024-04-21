@@ -5,6 +5,7 @@ extends Node
 @onready var road: Node2D = $"../Road"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var beetle: Node2D = $"../Beetle"
+@onready var background: Node2D = %Background
 
 var _run_time := 0.0
 var _score := 0
@@ -22,6 +23,7 @@ func _ready() -> void:
 	var middle_note_picker_position := road.find_child("NotePickerMiddle").global_position as Vector2
 	var reposition_vector = middle_beetle_hurtbox_desired_position - middle_note_picker_position
 	road.global_position += reposition_vector
+	background.position = camera_2d.position
 	for child in road.get_children():
 		if child is Note_Picker:
 			child.process_mode = Node.PROCESS_MODE_DISABLED
