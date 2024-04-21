@@ -1,15 +1,10 @@
 extends Control
 
+signal back_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
+	back_button_pressed.connect(get_parent().return_to_start_menu)
+	
 func _on_back_pressed():
-	pass
+	back_button_pressed.emit(self)

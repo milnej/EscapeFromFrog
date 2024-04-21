@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://l8bqq84h0gc8"]
+[gd_scene load_steps=5 format=3 uid="uid://l8bqq84h0gc8"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_jqkw4"]
+[ext_resource type="PackedScene" uid="uid://ctum5q5u2t5nd" path="res://Scene/credits.tscn" id="2_00dps"]
+[ext_resource type="PackedScene" uid="uid://couokif385oo0" path="res://Scene/settings.tscn" id="3_xtoak"]
+[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="4_hje12"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("start", "credits", "settings")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,52 +15,100 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jqkw4")
+start = NodePath("Start")
+credits = NodePath("Credits")
+settings = NodePath("Settings")
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Start" type="Control" parent="."]
 layout_mode = 1
-offset_left = -80.0
-offset_top = -276.0
-offset_right = 90.0
-offset_bottom = -253.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -284.0
+offset_right = 85.0
+offset_bottom = -261.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(85, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer2"]
+[node name="Title" type="Label" parent="Start/VBoxContainer2"]
 layout_mode = 2
 text = "Escape From Gua-Gua"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Start"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -35.0
+offset_top = -68.0
 offset_right = 35.0
-offset_bottom = 136.0
+offset_bottom = 68.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
 text = "Start"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Credits" parent="." instance=ExtResource("2_00dps")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -236.0
+offset_right = 8.0
+offset_bottom = -236.0
+pivot_offset = Vector2(0, 188)
+
+[node name="Settings" parent="." instance=ExtResource("3_xtoak")]
+visible = false
+layout_mode = 1
+offset_left = -576.0
+offset_top = -292.0
+offset_right = -576.0
+offset_bottom = -292.0
+pivot_offset = Vector2(576, 336)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hje12")
+volume_db = -6.0
+bus = &"Music"
+
+[connection signal="pressed" from="Start/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Start/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Start/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Start/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

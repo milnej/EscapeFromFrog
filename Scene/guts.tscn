@@ -183,8 +183,10 @@ scale = Vector2(1.54995, 3.13191)
 stream = ExtResource("8_2ks02")
 volume_db = -6.0
 autoplay = true
+bus = &"Music"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_h6cyb")
 volume_db = -9.0
+bus = &"SFX"
 script = ExtResource("11_wqek8")
