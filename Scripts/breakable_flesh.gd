@@ -1,1 +1,1 @@
-extends Note
+extends "res://Scripts/note.gd"
