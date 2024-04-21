@@ -27,7 +27,7 @@ metadata/_edit_group_ = true
 modulate = Color(0.121569, 0.494118, 0.501961, 1)
 
 [node name="NotePickerRight" parent="." instance=ExtResource("2_01g0b")]
-position = Vector2(-97, 479)
+position = Vector2(-96, 472)
 scale = Vector2(1.00296, 1.02475)
 note_number = 2
 metadata/_edit_group_ = true

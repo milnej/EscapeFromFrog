@@ -5,9 +5,18 @@ var note_scene = preload("res://note.tscn")
 
 var note_count = 0
 var beat_map_file_name = "res://beatMap1.txt"
+var note_move_speed
+var note_scale
 
-var bpm = 60
-var note_move_speed = 3
+const DIST_BETWEEN_NOTES = 200
+
+func calculate_note_speed(bpm):
+	var note_length = DIST_BETWEEN_NOTES * 0.005
+	var beat_in_seconds = 60/float(bpm)
+	
+	note_move_speed = note_length/beat_in_seconds
+	note_scale = note_length/DIST_BETWEEN_NOTES
+	print(note_scale)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +24,9 @@ func _ready():
 	var file = FileAccess.open(beat_map_file_name, FileAccess.READ)
 	var beat_map_raw = file.get_as_text()
 	var beat_map = beat_map_raw.split('\n')
+	var bpm = 85
+
+	calculate_note_speed(bpm)
 	
 	for i in range(len(beat_map)):
 		add_note(beat_map[i])
@@ -31,6 +43,6 @@ func add_note(note_lane):
 
 	note.line = note_lane
 
-	note.note_position = note_count * 100
+	note.note_position = note_count * DIST_BETWEEN_NOTES
 	note_conductor.add_child(note)
 	note_count += 1
