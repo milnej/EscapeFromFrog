@@ -1,12 +1,6 @@
 94
 bf,bf,bf
-bf,bf,bf
-bf,bf,bf
-bf,bf,bf
-bf,bf,bf
-bf,bf,bf
-bf,bf,bf
-bf,bf,bf
+bt,bt,bt
 bf,bf,bf
 bf,bf,bf
 bf,uf,uf
