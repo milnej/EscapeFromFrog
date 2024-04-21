@@ -9,29 +9,34 @@ script = ExtResource("1_6cq6f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(3, 10)
+position = Vector2(458.5, 311.5)
+scale = Vector2(15.1953, 5.13281)
 texture = ExtResource("1_aravj")
 
 [node name="NotePickerLeft" parent="." instance=ExtResource("2_01g0b")]
-position = Vector2(-125, 250)
+position = Vector2(-96, 104)
+metadata/_edit_group_ = true
 
 [node name="NotePickerMiddle" parent="." instance=ExtResource("2_01g0b")]
 modulate = Color(0.25098, 1, 1, 1)
-position = Vector2(0, 250)
+position = Vector2(-96, 288)
 note_number = 1
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="NotePickerMiddle" index="1"]
 modulate = Color(0.121569, 0.494118, 0.501961, 1)
 
 [node name="NotePickerRight" parent="." instance=ExtResource("2_01g0b")]
-position = Vector2(125, 250)
+position = Vector2(-97, 479)
 scale = Vector2(1.00296, 1.02475)
 note_number = 2
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="NotePickerRight" index="1"]
 modulate = Color(1, 0.227451, 0.2, 1)
 
 [node name="NoteConductor" type="Node2D" parent="."]
+position = Vector2(864, 288)
 
 [editable path="NotePickerLeft"]
 [editable path="NotePickerMiddle"]

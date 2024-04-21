@@ -7,7 +7,7 @@ var is_colliding: bool = false
 var is_collected: bool = false
 var note_picker: Note_Picker
 
-const NOTE_DISTANCE: int = 125
+const NOTE_DISTANCE: int = 185
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,10 +28,8 @@ func set_note_position():
 			x = 0
 		2: # Right
 			x = 1
-		_: # Unkown
-			x = -1
-			
-	self.position = Vector2(x * NOTE_DISTANCE, -note_position)
+
+	self.position = Vector2(note_position, x * NOTE_DISTANCE)
 
 func collect():
 	if !is_collected:
