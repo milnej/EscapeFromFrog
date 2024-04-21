@@ -48,10 +48,10 @@ points_value = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(1.84375, 1.84375)
 sprite_frames = SubResource("SpriteFrames_ixium")
 autoplay = "default"
-frame = 1
-frame_progress = 0.480444
+frame_progress = 0.890647
 speed_scale = 0.8
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]

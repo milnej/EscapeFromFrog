@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1up4r1xfavds"]
+[gd_scene load_steps=4 format=3 uid="uid://js41db8ow8hu"]
 
 [ext_resource type="Script" path="res://Scripts/acid.gd" id="1_b0nbv"]
 [ext_resource type="Texture2D" uid="uid://cx6s8571167nb" path="res://Resources/Sprites/barrier.png" id="2_0e65y"]
@@ -11,7 +11,7 @@ script = ExtResource("1_b0nbv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.666667, 0.5)
+scale = Vector2(0.666667, 1.125)
 texture = ExtResource("2_0e65y")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
