@@ -13,3 +13,16 @@ func _process(delta):
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scene/guts.tscn")
+
+
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+func _on_credits_pressed():
+	#var credits = load().instance()
+	pass
+
+
+func _on_settings_pressed():
+	pass # Replace with function body.
