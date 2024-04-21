@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgfrkai27nid3"]
 
 [ext_resource type="Script" path="res://Scripts/acid.gd" id="1_rx3qk"]
-[ext_resource type="Texture2D" uid="uid://cweeplkf32wao" path="res://Resources/Sprites/acidbubble.png" id="2_40raq"]
+[ext_resource type="Texture2D" uid="uid://cn6rsntby5xvq" path="res://Resources/Sprites/acidbubble.png" id="2_40raq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
