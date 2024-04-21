@@ -8,7 +8,7 @@ var acid = preload("res://Scene/acid.tscn")
 var beetle_trapped = preload("res://Scene/beetle_trapped.tscn")
 
 var row_count = 0
-var beat_map_file_name = "res://beatMap1.txt"
+var beat_map_file_name = "res://BeatMaps/beatMap1.txt"
 var note_move_speed
 var bpm
 
