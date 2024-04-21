@@ -47,10 +47,12 @@ script = ExtResource("1_rx3qk")
 points_value = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ixium")
 autoplay = "default"
+frame = 1
+frame_progress = 0.480444
+speed_scale = 0.8
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 collision_layer = 2
