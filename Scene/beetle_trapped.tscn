@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpqdwakl4j5m1"]
 
 [ext_resource type="Script" path="res://Scripts/unbreakable_flesh.gd" id="1_q5tcs"]
-[ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="2_xxukw"]
+[ext_resource type="Texture2D" uid="uid://mia6c7q5fh12" path="res://Resources/Sprites/trapped_beetle.png" id="2_rqiyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
@@ -13,7 +13,7 @@ script = ExtResource("1_q5tcs")
 modulate = Color(1, 1, 0.247059, 1)
 position = Vector2(-32, 0)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xxukw")
+texture = ExtResource("2_rqiyy")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2
