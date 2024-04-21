@@ -7,7 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3a4"]
 size = Vector2(32, 18)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fape4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eu4gk"]
+size = Vector2(13.6, 14.6)
 
 [node name="Beetle" type="Node2D"]
 scale = Vector2(5, 5)
@@ -26,8 +27,8 @@ shape = SubResource("RectangleShape2D_bx3a4")
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(30.4, 0)
-shape = SubResource("CircleShape2D_fape4")
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_eu4gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="HurtBox/CollisionShape2D"]
 texture_filter = 1

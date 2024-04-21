@@ -3,6 +3,7 @@ extends Node2D
 @onready var guts_manager: Node = %GutsManager
 @export var line: int
 @export var note_number: int
+@export var points_value: int = 1
 var note_position: int  = 0
 var is_colliding: bool = false
 var is_collected: bool = false
@@ -39,7 +40,7 @@ func collect():
 			if note_picker.is_collecting:
 				is_collected = true
 				note_picker.is_collecting = false
-				SignalBus.note_collected.emit(1)
+				SignalBus.note_collected.emit(points_value)
 				queue_free()
 
 func _on_area_2d_area_entered(area):
