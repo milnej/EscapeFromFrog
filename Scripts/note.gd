@@ -1,6 +1,7 @@
-extends Node2D
+class_name Note extends Node2D
 
-@onready var guts_manager: Node = %GutsManager
+var guts_manager: Node
+var sfx_player: NoteCollectionPlayer
 @export var line: int
 @export var note_number: int
 @export var points_value: int = 1
@@ -10,13 +11,20 @@ var is_collected: bool = false
 var note_picker: Note_Picker
 var LANE_DISTANCE: int = 185
 
+signal note_collected
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (guts_manager != null and !guts_manager.is_node_ready()):
 		await guts_manager.ready
 	LANE_DISTANCE = GlobalVars.vertical_position_increments
 	set_note_position()
-
+	
+	# please do not look at this it is disgusting :)
+	var root_node = get_tree().root.get_node("Guts")
+	guts_manager = root_node.get_node("GutsManager")
+	sfx_player = root_node.get_node("SFXPlayer")
+	note_collected.connect(sfx_player.on_note_collected)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -41,6 +49,7 @@ func collect():
 				is_collected = true
 				note_picker.is_collecting = false
 				SignalBus.note_collected.emit(points_value)
+				note_collected.emit()
 				queue_free()
 
 func _on_area_2d_area_entered(area):

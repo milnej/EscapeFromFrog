@@ -1,4 +1,6 @@
-extends "res://Scripts/note.gd"
+extends Note
 
 func collect():
+	super.collect()
+	
 	pass

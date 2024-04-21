@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bui0n6s8tbd5h"
+path="res://.godot/imported/SCJ24Frog_SFX_Acid Bubble Pop.wav-7587bc2fb63e794b6f9ddd0ef490eb87.sample"
+
+[deps]
+
+source_file="res://Resources/Sound Effects/SCJ24Frog_SFX_Acid Bubble Pop.wav"
+dest_files=["res://.godot/imported/SCJ24Frog_SFX_Acid Bubble Pop.wav-7587bc2fb63e794b6f9ddd0ef490eb87.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
