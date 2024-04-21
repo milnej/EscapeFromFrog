@@ -10,15 +10,20 @@ unique_name_in_owner = true
 script = ExtResource("4_b4uh3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 325)
 scale = Vector2(1.54995, 3.13191)
 
 [node name="Road" parent="." instance=ExtResource("1_g0fle")]
+position = Vector2(356, 9)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
-offset_right = 155.0
-offset_bottom = 144.0
+offset_left = 24.0
+offset_top = 464.0
+offset_right = 179.0
+offset_bottom = 608.0
+metadata/_edit_group_ = true
 
 [node name="TimerLabel" type="Label" parent="UI/Panel"]
 unique_name_in_owner = true
@@ -38,9 +43,12 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -155.0
-offset_bottom = 144.0
+offset_left = -1138.0
+offset_top = 45.0
+offset_right = -983.0
+offset_bottom = 189.0
 grow_horizontal = 0
+metadata/_edit_group_ = true
 
 [node name="ScoreLabel" type="Label" parent="UI/Panel2"]
 unique_name_in_owner = true
