@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1ho5bmn4onai"
+path="res://.godot/imported/SCJ24Frog_SFX_Flesh Wall Break.wav-77b2ec604966b537d3e0b60c00fecd7f.sample"
+
+[deps]
+
+source_file="res://Resources/Sound Effects/SCJ24Frog_SFX_Flesh Wall Break.wav"
+dest_files=["res://.godot/imported/SCJ24Frog_SFX_Flesh Wall Break.wav-77b2ec604966b537d3e0b60c00fecd7f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

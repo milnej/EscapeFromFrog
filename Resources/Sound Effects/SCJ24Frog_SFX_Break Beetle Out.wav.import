@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://biuaf0lykf41y"
+path="res://.godot/imported/SCJ24Frog_SFX_Break Beetle Out.wav-780b470e4754223da30d884d904cd3ea.sample"
+
+[deps]
+
+source_file="res://Resources/Sound Effects/SCJ24Frog_SFX_Break Beetle Out.wav"
+dest_files=["res://.godot/imported/SCJ24Frog_SFX_Break Beetle Out.wav-780b470e4754223da30d884d904cd3ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
