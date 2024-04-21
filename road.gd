@@ -11,20 +11,18 @@ var note_scale
 const DIST_BETWEEN_NOTES = 200
 
 func calculate_note_speed(bpm):
-	var note_length = DIST_BETWEEN_NOTES * 0.005
+	var note_length = DIST_BETWEEN_NOTES
 	var beat_in_seconds = 60/float(bpm)
 	
 	note_move_speed = note_length/beat_in_seconds
 	note_scale = note_length/DIST_BETWEEN_NOTES
-	print(note_scale)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 
 	var file = FileAccess.open(beat_map_file_name, FileAccess.READ)
 	var beat_map_raw = file.get_as_text()
 	var beat_map = beat_map_raw.split('\n')
-	var bpm = 85
+	var bpm = 83
 
 	calculate_note_speed(bpm)
 	
@@ -32,7 +30,7 @@ func _ready():
 		add_note(beat_map[i])
 
 func _process(delta):
-	note_conductor.position += Vector2(-note_move_speed, 0)
+	note_conductor.position += Vector2(-note_move_speed*delta, 0)
 
 func add_note(note_lane):
 
