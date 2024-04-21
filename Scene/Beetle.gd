@@ -42,12 +42,22 @@ func _set_sprite():
 			pass
 
 func _process_input():
-	if Input.is_action_just_pressed("beetle_top"):
-		row = ROW.TOP
-	elif Input.is_action_just_pressed("beetle_middle"):
-		row = ROW.MIDDLE
-	elif Input.is_action_just_pressed("beetle_bottom"):
-		row = ROW.BOTTOM
+	if Input.is_action_just_pressed("beetle_up"):
+		match row:
+			ROW.TOP:
+				row = ROW.TOP
+			ROW.MIDDLE:
+				row = ROW.TOP
+			ROW.BOTTOM: 
+				row = ROW.MIDDLE
+	elif Input.is_action_just_pressed("beetle_down"):
+		match row:
+			ROW.TOP:
+				row = ROW.MIDDLE
+			ROW.MIDDLE:
+				row = ROW.BOTTOM
+			ROW.BOTTOM: 
+				row = ROW.BOTTOM
 	elif (Input.is_action_just_pressed("beetle_attack") and not is_attacking):
 		is_attacking = true
 		curr_attack_length = 0.0
