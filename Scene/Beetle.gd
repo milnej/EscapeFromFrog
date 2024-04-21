@@ -24,13 +24,6 @@ func _ready():
 	_set_sprite()
 
 func _set_sprite():
-	if (!$AnimatedSprite2D.is_playing()):
-		$AnimatedSprite2D.animation = "running"
-	if (is_attacking):
-		beetle_note_picker.scale = Vector2(0.8, 0.8)
-		$AnimatedSprite2D.animation = "attack"
-	else:
-		beetle_note_picker.scale = Vector2(1.0, 1.0)
 	match row:
 		ROW.TOP:
 			position = top_position
@@ -43,6 +36,16 @@ func _set_sprite():
 			$AnimatedSprite2D.flip_v = false
 		_:
 			pass
+	if (!$AnimatedSprite2D.is_playing() || $AnimatedSprite2D.animation != "attack"):
+		if row == ROW.MIDDLE:
+			$AnimatedSprite2D.animation = "back_wall_running"
+		else:
+			$AnimatedSprite2D.animation = "running"
+	if (is_attacking):
+		beetle_note_picker.scale = Vector2(0.8, 0.8)
+		$AnimatedSprite2D.animation = "attack"
+	else:
+		beetle_note_picker.scale = Vector2(1.0, 1.0)
 	$AnimatedSprite2D.play()
 
 func _process_input():
