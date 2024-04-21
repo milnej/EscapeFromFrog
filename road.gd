@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var note_conductor = $NoteConductor
+@export var bpm: int = 188
 var note_scene = preload("res://note.tscn")
 
 var note_count = 0
@@ -22,7 +23,6 @@ func _ready():
 	var file = FileAccess.open(beat_map_file_name, FileAccess.READ)
 	var beat_map_raw = file.get_as_text()
 	var beat_map = beat_map_raw.split('\n')
-	var bpm = 83
 
 	calculate_note_speed(bpm)
 	

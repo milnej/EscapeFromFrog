@@ -1,12 +1,12 @@
 extends Node2D
 
+@onready var guts_manager: Node = %GutsManager
 @export var line: int
 @export var note_number: int
 var note_position: int  = 0
 var is_colliding: bool = false
 var is_collected: bool = false
 var note_picker: Note_Picker
-@onready var guts_manager: Node = $GutsManager
 var LANE_DISTANCE: int = 185
 
 # Called when the node enters the scene tree for the first time.
