@@ -4,9 +4,11 @@ var guts_manager: Node
 var sfx_player: NoteCollectionPlayer
 @export var line: int
 @export var note_number: int
-@export var points_value: int = 1
+@export var points_value: int = 25
 var note_position: int  = 0
-var is_colliding: bool = false
+var is_colliding_okay: bool = false
+var is_colliding_nice: bool = false
+var is_colliding_perfect: bool = false
 var is_collected: bool = false
 var note_picker: Note_Picker
 var LANE_DISTANCE: int = 185
@@ -44,23 +46,55 @@ func set_note_position():
 
 func collect():
 	if !is_collected:
-		if is_colliding and note_picker != null:
-			if note_picker.is_collecting:
+		if note_picker != null:
+			if is_colliding_perfect and note_picker.is_collecting:
+				is_collected = true
+				note_picker.is_collecting = false
+				SignalBus.note_collected.emit(points_value * 3)
+				note_collected.emit()
+				print("PERFECT")
+				queue_free()
+			elif is_colliding_nice and note_picker.is_collecting:
+				is_collected = true
+				note_picker.is_collecting = false
+				SignalBus.note_collected.emit(points_value * 2)
+				note_collected.emit()
+				print("Nice")
+				queue_free()
+			elif is_colliding_okay and note_picker.is_collecting:
 				is_collected = true
 				note_picker.is_collecting = false
 				SignalBus.note_collected.emit(points_value)
 				note_collected.emit()
+				print("Ok..")
 				queue_free()
 
-func _on_area_2d_area_entered(area):
-	print(area.get_parent() is Note_Picker)
+func _on_nice_area_entered(area):
 	if area.get_parent() is Note_Picker:
-		is_colliding = true;
+		is_colliding_nice = true;
+		note_picker = area.get_parent()
+
+func _on_perfect_area_entered(area):
+	if area.get_parent() is Note_Picker:
+		is_colliding_perfect = true;
+		note_picker = area.get_parent()
+
+func _on_okay_area_entered(area):
+	if area.get_parent() is Note_Picker:
+		is_colliding_okay = true;
 		note_picker = area.get_parent()
 	elif area.get_parent() is Beetle_Player:
-		is_colliding = false;
+		is_colliding_okay = false;
 		SignalBus.note_missed.emit()
 
-func _on_area_2d_area_exited(area):
+func _on_okay_area_exited(area):
 	if area.get_parent() is Note_Picker:
-		is_colliding = false;
+		is_colliding_okay = false;
+
+func _on_nice_area_exited(area):
+	if area.get_parent() is Note_Picker:
+		is_colliding_nice = false;
+
+func _on_perfect_area_exited(area):
+	if area.get_parent() is Note_Picker:
+		is_colliding_perfect = false;

@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpqdwakl4j5m1"]
+[gd_scene load_steps=6 format=3 uid="uid://bpqdwakl4j5m1"]
 
 [ext_resource type="Script" path="res://Scripts/unbreakable_flesh.gd" id="1_q5tcs"]
 [ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="2_xxukw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf2fx"]
+size = Vector2(96, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buwt3"]
+size = Vector2(384, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0srf"]
+size = Vector2(128, 64)
 
 [node name="Note2" type="Node2D"]
 script = ExtResource("1_q5tcs")
@@ -18,8 +24,16 @@ texture = ExtResource("2_xxukw")
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-shape = SubResource("RectangleShape2D_yf74h")
+[node name="Perfect" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hf2fx")
+
+[node name="Nice" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_buwt3")
+
+[node name="Okay" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_j0srf")
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
