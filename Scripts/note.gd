@@ -57,6 +57,9 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent() is Note_Picker:
 		is_colliding = true;
 		note_picker = area.get_parent()
+	elif area.get_parent() is Beetle_Player:
+		is_colliding = false;
+		SignalBus.note_missed.emit()
 
 func _on_area_2d_area_exited(area):
 	if area.get_parent() is Note_Picker:

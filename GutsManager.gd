@@ -9,6 +9,7 @@ extends Node
 
 var _run_time := 0.0
 var _score := 0
+var _combo := 0
 
 func _ready() -> void:
 	var cam_center = camera_2d.get_screen_center_position()
@@ -29,15 +30,22 @@ func _ready() -> void:
 			child.process_mode = Node.PROCESS_MODE_DISABLED
 			child.visible = false
 	SignalBus.connect("note_collected", _add_score)
+	SignalBus.connect("note_missed", _break_combo)
 
 func _process(delta: float) -> void:
 	_run_time += delta
 	
 	timer_label.text = "%.2f" % _run_time
-	score_label.text = str(_score)
+	score_label.text = "Score: %d\n Combo: %d" % [_score, _combo]
 
 func _add_score(points: int) -> void:
-	_score += points
+	var combo_bonus = (points / 100) * (_combo / 5)
+	
+	_score += points + combo_bonus
+	_combo += 1
+
+func _break_combo() -> void:
+	_combo = 0
 
 func _update_leaderboard():
 	pass

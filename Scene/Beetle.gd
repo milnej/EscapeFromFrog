@@ -1,4 +1,4 @@
-extends Node2D
+class_name Beetle_Player extends Node2D
 
 var top_position : Vector2
 var middle_position : Vector2

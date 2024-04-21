@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgfrkai27nid3"]
 
 [ext_resource type="Script" path="res://Scripts/acid.gd" id="1_rx3qk"]
-[ext_resource type="Texture2D" uid="uid://bpmmbsww0mksg" path="res://Resources/Sprites/acidbubble.png" id="2_40raq"]
+[ext_resource type="Texture2D" uid="uid://cn6rsntby5xvq" path="res://Resources/Sprites/acidbubble.png" id="2_40raq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
@@ -13,7 +13,6 @@ points_value = 0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
 texture_filter = 1
-position = Vector2(-32, 0)
 texture = ExtResource("2_40raq")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
