@@ -8,42 +8,26 @@ var curr_attack_length : float
 const max_attack_length := 0.25 # How long an attack can be held down before resetting
 
 enum ROW  {TOP, MIDDLE, BOTTOM}
-var row := ROW.TOP
+var row := ROW.MIDDLE
 
 @onready var camera_2d = $"../Camera2D"
+@onready var guts_manager: Node = $"../GutsManager"
+@onready var beetle_note_picker: Node2D = $BeetleNotePicker
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var cam_center = camera_2d.get_screen_center_position()
-	var horizontal_position = cam_center.x - get_viewport().size.x/4
-	var vertical_position_increments = get_viewport().size.y/3
-	top_position = Vector2(horizontal_position, cam_center.y - vertical_position_increments)
-	middle_position = Vector2(horizontal_position, cam_center.y)
-	bottom_position = Vector2(horizontal_position, cam_center.y + vertical_position_increments)
+	if (!guts_manager.is_node_ready()):
+		await guts_manager.ready
+	top_position = GlobalVars.top_beetle_pos
+	middle_position = GlobalVars.middle_beetle_pos
+	bottom_position = GlobalVars.bottom_beetle_pos
+	_set_sprite()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if (curr_attack_length > max_attack_length):
-		is_attacking = false
+func _set_sprite():
 	if (is_attacking):
-		curr_attack_length += delta
-		$HurtBox.scale = Vector2(0.8, 0.8)
+		beetle_note_picker.scale = Vector2(0.8, 0.8)
 	else:
-		$HurtBox.scale = Vector2(1.0, 1.0)
-	if Input.is_action_just_pressed("beetle_top"):
-		row = ROW.TOP
-	elif Input.is_action_just_pressed("beetle_middle"):
-		row = ROW.MIDDLE
-	elif Input.is_action_just_pressed("beetle_bottom"):
-		row = ROW.BOTTOM
-	elif (Input.is_action_just_pressed("beetle_attack") and not is_attacking):
-		is_attacking = true
-		curr_attack_length = 0.0
-	elif Input.is_action_just_released("beetle_attack"):
-		is_attacking = false
-
+		beetle_note_picker.scale = Vector2(1.0, 1.0)
 	match row:
 		ROW.TOP:
 			position = top_position
@@ -56,4 +40,31 @@ func _process(delta):
 			$AnimatedSprite2D.flip_v = false
 		_:
 			pass
+
+func _process_input():
+	if Input.is_action_just_pressed("beetle_top"):
+		row = ROW.TOP
+	elif Input.is_action_just_pressed("beetle_middle"):
+		row = ROW.MIDDLE
+	elif Input.is_action_just_pressed("beetle_bottom"):
+		row = ROW.BOTTOM
+	elif (Input.is_action_just_pressed("beetle_attack") and not is_attacking):
+		is_attacking = true
+		curr_attack_length = 0.0
+	elif Input.is_action_just_released("beetle_attack"):
+		is_attacking = false
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	_process_input()
+	if (is_attacking):
+		curr_attack_length += delta
+		beetle_note_picker.is_pressed = true
+		beetle_note_picker.is_collecting = true
+	else:
+		beetle_note_picker.is_pressed = false
+		beetle_note_picker.is_collecting = false
+	if (curr_attack_length > max_attack_length):
+		is_attacking = false
+	_set_sprite()
 	
