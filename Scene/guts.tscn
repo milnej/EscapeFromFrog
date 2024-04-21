@@ -162,7 +162,7 @@ animations = [{
 size = Vector2(15.8, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnirx"]
-size = Vector2(13.6, 14.6)
+size = Vector2(6.80001, 6.4)
 
 [node name="Guts" type="Node2D"]
 
@@ -244,12 +244,13 @@ position = Vector2(-30.4, 0)
 
 [node name="HurtBoxCollider" type="CollisionShape2D" parent="Beetle/BeetleNotePicker/HurtBox"]
 position = Vector2(27, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xnirx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Beetle/BeetleNotePicker/HurtBox/HurtBoxCollider"]
 texture_filter = 1
 position = Vector2(3.09944e-06, 0)
-scale = Vector2(0.2125, 0.23125)
+scale = Vector2(0.1005, 0.10325)
 texture = ExtResource("4_cygtt")
 
 [node name="Background" type="Sprite2D" parent="."]

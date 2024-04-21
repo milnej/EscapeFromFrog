@@ -8,7 +8,7 @@
 size = Vector2(32, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu4gk"]
-size = Vector2(13.6, 14.6)
+size = Vector2(6.80001, 6.4)
 
 [node name="Beetle" type="Node2D"]
 scale = Vector2(5, 5)
@@ -28,10 +28,11 @@ shape = SubResource("RectangleShape2D_bx3a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(27, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_eu4gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="HurtBox/CollisionShape2D"]
 texture_filter = 1
 position = Vector2(3.09944e-06, 0)
-scale = Vector2(0.2125, 0.23125)
+scale = Vector2(0.0951663, 0.0952499)
 texture = ExtResource("3_h04vd")

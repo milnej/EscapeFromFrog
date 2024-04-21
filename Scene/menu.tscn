@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_jqkw4"]
 [ext_resource type="PackedScene" uid="uid://ctum5q5u2t5nd" path="res://Scene/credits.tscn" id="2_00dps"]
 [ext_resource type="PackedScene" uid="uid://couokif385oo0" path="res://Scene/settings.tscn" id="3_xtoak"]
-[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="4_hje12"]
+[ext_resource type="AudioStream" uid="uid://ds1kt0p4qwqe5" path="res://Resources/Music/SCJ2024_GwaGwasSillyLittleStomach_BossaNova.wav" id="4_ufey1"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("start", "credits", "settings")]
 layout_mode = 3
@@ -104,8 +104,9 @@ offset_bottom = -292.0
 pivot_offset = Vector2(576, 336)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_hje12")
+stream = ExtResource("4_ufey1")
 volume_db = -6.0
+autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="Start/VBoxContainer/Start" to="." method="_on_start_pressed"]
