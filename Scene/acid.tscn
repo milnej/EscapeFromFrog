@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bngn2iigrq677"]
+[gd_scene load_steps=4 format=3 uid="uid://7lqkkgbr57wc"]
 
-[ext_resource type="Script" path="res://Scripts/breakable_flesh.gd" id="1_4krcn"]
-[ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="1_nq5ql"]
+[ext_resource type="Script" path="res://Scripts/acid.gd" id="1_rx3qk"]
+[ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="2_kr7c7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
 
 [node name="Note" type="Node2D"]
-script = ExtResource("1_4krcn")
+script = ExtResource("1_rx3qk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0.247059, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nq5ql")
+texture = ExtResource("2_kr7c7")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2
