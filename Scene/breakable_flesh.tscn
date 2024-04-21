@@ -8,9 +8,6 @@ size = Vector2(128, 128)
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_munt2")
-line = null
-note_number = null
-points_value = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0.247059, 1)

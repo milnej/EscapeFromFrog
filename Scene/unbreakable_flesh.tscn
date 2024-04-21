@@ -10,7 +10,7 @@ size = Vector2(128, 128)
 script = ExtResource("1_klm06")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0.247059, 1)
+modulate = Color(0.537255, 0.0666667, 0, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_c6od4")
 
@@ -19,6 +19,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 shape = SubResource("RectangleShape2D_yf74h")
+debug_color = Color(0.94902, 0.184314, 0.341176, 0.419608)
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_exited"]

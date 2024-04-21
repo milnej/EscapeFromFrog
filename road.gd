@@ -3,12 +3,14 @@ extends Node2D
 @onready var note_conductor = $NoteConductor
 var note_scene = preload("res://note.tscn")
 var breakable_flesh = preload("res://Scene/breakable_flesh.tscn")
+var unbreakable_flesh = preload("res://Scene/unbreakable_flesh.tscn")
+var acid = preload("res://Scene/acid.tscn")
+var beetle_trapped = preload("res://Scene/beetle_trapped.tscn")
 
 var row_count = 0
 var beat_map_file_name = "res://beatMap1.txt"
 var note_move_speed
 var bpm
-
 
 const DIST_BETWEEN_NOTES = 200
 
@@ -26,7 +28,7 @@ func parse_beat_map(file_name):
 	return out
 		
 
-func calculate_note_speed(bpm):
+func calculate_note_speed():
 	var note_length = DIST_BETWEEN_NOTES
 	var beat_in_seconds = 60/float(bpm)
 	note_move_speed = note_length/beat_in_seconds
@@ -35,7 +37,7 @@ func _ready():
 
 	var beat_map = parse_beat_map(beat_map_file_name)
 
-	calculate_note_speed(bpm)
+	calculate_note_speed()
 	
 	for i in range(len(beat_map)):
 		add_row(beat_map[i])
@@ -50,12 +52,19 @@ func add_row(row):
 
 func add_note(note_type, note_lane):
 	var note
-	if note_type == "-":
-		return
-	elif note_type == "bf":
-		note = breakable_flesh.instantiate()
-	else:
-		note = note_scene.instantiate()
+	match note_type:
+		"-":
+			return
+		"bf":
+			note = breakable_flesh.instantiate()
+		"uf":
+			note = unbreakable_flesh.instantiate()
+		"a":
+			note = acid.instantiate()
+		"bt":
+			note = beetle_trapped.instantiate()
+		_:
+			return
 
 	note.line = note_lane
 	note.note_position = row_count * DIST_BETWEEN_NOTES
