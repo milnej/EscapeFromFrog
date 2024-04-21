@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://dm4fl00uijsbt"]
 
-[ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://guts_manager.tscn" id="1_hg52k"]
+[ext_resource type="PackedScene" path="res://guts_manager.tscn" id="1_hg52k"]
 [ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://road.tscn" id="2_b2kmn"]
 [ext_resource type="Texture2D" uid="uid://c2agobqvkvly2" path="res://Resources/Sprites/Blue.png" id="2_m43vk"]
 [ext_resource type="Script" path="res://Scene/Beetle.gd" id="2_vfcls"]

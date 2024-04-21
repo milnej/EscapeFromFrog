@@ -1,17 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bngn2iigrq677"]
 
-[ext_resource type="Script" path="res://Scripts/note.gd" id="1_jmnrm"]
+[ext_resource type="Script" path="res://Scripts/breakable_flesh.gd" id="1_4krcn"]
 [ext_resource type="Texture2D" uid="uid://bs6r4ygmfwj0x" path="res://icon.svg" id="1_nq5ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
 
-[node name="Note3" type="Node2D"]
-script = ExtResource("1_jmnrm")
-points_value = 100
+[node name="Note2" type="Node2D"]
+script = ExtResource("1_4krcn")
+line = null
+note_number = null
+points_value = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.619635, 0.966662, 1)
+modulate = Color(1, 1, 0.247059, 1)
+position = Vector2(-32, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_nq5ql")
 
