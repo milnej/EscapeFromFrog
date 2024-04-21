@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var note_conductor = $NoteConductor
-@export var bpm: int = 188
 var note_scene = preload("res://note.tscn")
+var breakable_flesh = preload("res://Scene/breakable_flesh.tscn")
 
 var row_count = 0
 var beat_map_file_name = "res://beatMap1.txt"
