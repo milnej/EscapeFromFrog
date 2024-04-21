@@ -6,15 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
 size = Vector2(128, 128)
 
-[node name="Note2" type="Node2D"]
+[node name="Note" type="Node2D"]
 script = ExtResource("1_4krcn")
-line = null
-note_number = null
-points_value = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0.247059, 1)
-position = Vector2(-32, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_nq5ql")
 

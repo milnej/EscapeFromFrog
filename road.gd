@@ -12,7 +12,7 @@ var beat_map_file_name = "res://beatMap1.txt"
 var note_move_speed
 var bpm
 
-const DIST_BETWEEN_NOTES = 200
+const DIST_BETWEEN_NOTES = 400
 
 func parse_beat_map(file_name):
 	var file = FileAccess.open(file_name, FileAccess.READ)

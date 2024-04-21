@@ -20,8 +20,7 @@ func _on_quit_pressed():
 
 
 func _on_credits_pressed():
-	var credits = load("res://Scene/credits.tscn").instantiate()
-	get_tree().current_scene.add_child(credits)
+	get_tree().change_scene_to_file("res://Scene/credits.tscn")
 
 
 func _on_settings_pressed():
