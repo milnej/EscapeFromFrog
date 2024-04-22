@@ -23,6 +23,14 @@ credits = NodePath("Credits")
 settings = NodePath("Settings")
 difficulty_select = NodePath("Difficulty Select")
 
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0.941176, 0.960784, 1)
+layout_mode = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
 [node name="Start" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15

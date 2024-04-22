@@ -217,7 +217,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3a4"]
-size = Vector2(15.8, 18)
+size = Vector2(15.8, 504.8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnirx"]
 size = Vector2(6.80001, 6.4)
@@ -561,6 +561,7 @@ position = Vector2(-54.4, -1.19209e-07)
 
 [node name="HitBoxCollider" type="CollisionShape2D" parent="Beetle/HitBox"]
 position = Vector2(-8.1, 1)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bx3a4")
 
 [node name="BeetleNotePicker" type="Node2D" parent="Beetle"]
