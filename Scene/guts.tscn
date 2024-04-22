@@ -202,8 +202,10 @@ unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 72.0
+offset_bottom = 80.0
+scale = Vector2(1, 0.879999)
 theme = ExtResource("2_qvj4e")
+step = 0.1
 
 [node name="Panel2" type="Panel" parent="UI"]
 anchors_preset = 5
@@ -229,9 +231,33 @@ label_settings = ExtResource("2_deiaa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel3" type="Panel" parent="UI"]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 832.0
+offset_bottom = 104.0
+
+[node name="HitLabel" type="Label" parent="UI/Panel3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+label_settings = ExtResource("2_deiaa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GutsManager" parent="." instance=ExtResource("1_hg52k")]
 
 [node name="Road" parent="." instance=ExtResource("2_b2kmn")]
+z_index = 1
+
+[node name="Sprite2D" parent="Road" index="0"]
+z_as_relative = false
 
 [node name="Button" parent="Road/Control" index="1"]
 offset_left = 0.0
@@ -245,7 +271,7 @@ offset_bottom = 176.0
 scale = Vector2(2.215, 2.215)
 
 [node name="Beetle" type="Node2D" parent="."]
-z_index = 1
+z_index = 5
 z_as_relative = false
 scale = Vector2(5, 5)
 script = ExtResource("2_vfcls")
@@ -259,7 +285,7 @@ animation = &"back_wall_running"
 autoplay = "back_wall_running"
 
 [node name="HitBox" type="Area2D" parent="Beetle"]
-position = Vector2(-19.85, -1)
+position = Vector2(-54.4, -1.19209e-07)
 
 [node name="HitBoxCollider" type="CollisionShape2D" parent="Beetle/HitBox"]
 position = Vector2(-8.1, 1)
@@ -295,21 +321,22 @@ script = ExtResource("11_wqek8")
 
 [node name="Background" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Cieling" type="Sprite2D" parent="Background"]
-z_as_relative = false
+z_index = 1
 texture_filter = 1
-position = Vector2(0, -4.00001)
-scale = Vector2(36, 20.375)
-texture = ExtResource("12_1iyel")
+scale = Vector2(1.48, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-texture_filter = 1
-position = Vector2(0, -4)
-scale = Vector2(36, 20.625)
+position = Vector2(0, -4.00001)
+scale = Vector2(25, 20)
+texture = ExtResource("12_1iyel")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(0, -4.00001)
+scale = Vector2(25, 20)
 texture = ExtResource("13_tpvut")
 
 [editable path="Road"]
 [editable path="Road/NotePickerLeft"]
 [editable path="Road/NotePickerMiddle"]
 [editable path="Road/NotePickerRight"]
+[editable path="Road/Ending_Screen"]

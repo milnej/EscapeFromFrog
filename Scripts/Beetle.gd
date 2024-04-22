@@ -5,7 +5,7 @@ var middle_position : Vector2
 var bottom_position : Vector2
 var is_attacking : bool
 var curr_attack_length : float
-const max_attack_length := 0.25 # How long an attack can be held down before resetting
+const max_attack_length := 0.15 # How long an attack can be held down before resetting
 
 enum ROW  {TOP, MIDDLE, BOTTOM}
 var row := ROW.MIDDLE
