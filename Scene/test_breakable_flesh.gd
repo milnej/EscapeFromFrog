@@ -14,4 +14,3 @@ func _process(delta):
 	elapsed += delta
 	color_status = ((sin(8*elapsed)+PI)/4)
 	$Sprite2D.self_modulate = Color(1,color_status,color_status,1)
-	pass
