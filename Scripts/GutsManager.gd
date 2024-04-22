@@ -13,7 +13,7 @@ var _combo := 0
 
 func _ready() -> void:
 	var cam_center = camera_2d.get_screen_center_position()
-	var horizontal_position = cam_center.x - get_viewport().size.x/4
+	var horizontal_position = cam_center.x - (get_viewport().size.x/4 * 2)
 	var vertical_position_increments = get_viewport().size.y/3
 	GlobalVars.vertical_position_increments = vertical_position_increments
 	GlobalVars.top_beetle_pos = Vector2(horizontal_position, cam_center.y - vertical_position_increments)
@@ -23,7 +23,7 @@ func _ready() -> void:
 	var middle_beetle_hurtbox_desired_position = GlobalVars.middle_beetle_pos + beetle_hurtbox_offset
 	var middle_note_picker_position := road.find_child("NotePickerMiddle").global_position as Vector2
 	var reposition_vector = middle_beetle_hurtbox_desired_position - middle_note_picker_position
-	road.global_position += reposition_vector
+	road.global_position += reposition_vector + Vector2(80, 0)
 	background.position = camera_2d.position
 	for child in road.get_children():
 		if child is Note_Picker:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnsw6alv42ln3"]
 
-[ext_resource type="Script" path="res://Scene/Beetle.gd" id="1_ioo8f"]
+[ext_resource type="Script" path="res://Scripts/Beetle.gd" id="1_ioo8f"]
 [ext_resource type="Texture2D" uid="uid://c2agobqvkvly2" path="res://Resources/Sprites/Blue.png" id="2_klk8e"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="3_h04vd"]
 
@@ -28,7 +28,6 @@ shape = SubResource("RectangleShape2D_bx3a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(27, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_eu4gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="HurtBox/CollisionShape2D"]

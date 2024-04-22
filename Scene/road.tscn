@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://be3odupd3c40n"]
+[gd_scene load_steps=5 format=3 uid="uid://be3odupd3c40n"]
 
-[ext_resource type="Script" path="res://road.gd" id="1_6cq6f"]
-[ext_resource type="PackedScene" uid="uid://clg447qeer1wv" path="res://note_picker.tscn" id="2_01g0b"]
+[ext_resource type="Script" path="res://Scripts/road.gd" id="1_6cq6f"]
+[ext_resource type="PackedScene" uid="uid://clg447qeer1wv" path="res://Scene/note_picker.tscn" id="2_01g0b"]
 [ext_resource type="Texture2D" uid="uid://cx6s8571167nb" path="res://Resources/Sprites/barrier.png" id="2_h0bfu"]
+[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_91M4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="4_kc6k5"]
 
 [node name="Road" type="Node2D"]
 script = ExtResource("1_6cq6f")
@@ -15,12 +16,12 @@ scale = Vector2(38.7398, 142.187)
 texture = ExtResource("2_h0bfu")
 
 [node name="NotePickerLeft" parent="." instance=ExtResource("2_01g0b")]
-position = Vector2(-96, 104)
+position = Vector2(-159, 104)
 metadata/_edit_group_ = true
 
 [node name="NotePickerMiddle" parent="." instance=ExtResource("2_01g0b")]
 modulate = Color(0.25098, 1, 1, 1)
-position = Vector2(-96, 288)
+position = Vector2(-159, 288)
 note_number = 1
 metadata/_edit_group_ = true
 
@@ -28,7 +29,7 @@ metadata/_edit_group_ = true
 modulate = Color(0.121569, 0.494118, 0.501961, 1)
 
 [node name="NotePickerRight" parent="." instance=ExtResource("2_01g0b")]
-position = Vector2(-97, 479)
+position = Vector2(-160, 479)
 scale = Vector2(1.00296, 1.02475)
 note_number = 2
 metadata/_edit_group_ = true
@@ -38,6 +39,9 @@ modulate = Color(1, 0.227451, 0.2, 1)
 
 [node name="NoteConductor" type="Node2D" parent="."]
 position = Vector2(864, 288)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kc6k5")
 
 [editable path="NotePickerLeft"]
 [editable path="NotePickerMiddle"]

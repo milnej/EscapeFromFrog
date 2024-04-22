@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://signal_bus.gd"
+SignalBus="*res://Scripts/signal_bus.gd"
 Leaderboard="*res://Scripts/leaderboard.gd"
-GlobalVars="*res://global_vars.gd"
+GlobalVars="*res://Scripts/global_vars.gd"
 
 [input]
 

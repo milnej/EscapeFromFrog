@@ -1,18 +1,17 @@
-[gd_scene load_steps=35 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=34 format=3 uid="uid://dm4fl00uijsbt"]
 
-[ext_resource type="PackedScene" path="res://guts_manager.tscn" id="1_hg52k"]
-[ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://road.tscn" id="2_b2kmn"]
+[ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://Scene/guts_manager.tscn" id="1_hg52k"]
+[ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://Scene/road.tscn" id="2_b2kmn"]
 [ext_resource type="Texture2D" uid="uid://c2agobqvkvly2" path="res://Resources/Sprites/Blue.png" id="2_m43vk"]
-[ext_resource type="Script" path="res://Scene/Beetle.gd" id="2_vfcls"]
+[ext_resource type="Script" path="res://Scripts/Beetle.gd" id="2_vfcls"]
 [ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
 [ext_resource type="Texture2D" uid="uid://dpwopr0ax5tg7" path="res://Resources/Animations/beetle_attack.png" id="4_oc8cn"]
 [ext_resource type="Texture2D" uid="uid://dcewyxro0t48i" path="res://Resources/Animations/beetle_back_wall_walk.png" id="5_ix82o"]
-[ext_resource type="Script" path="res://Scene/BeetleNotePicker.gd" id="6_rirdj"]
-[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="8_2ks02"]
+[ext_resource type="Script" path="res://Scripts/BeetleNotePicker.gd" id="6_rirdj"]
 [ext_resource type="Texture2D" uid="uid://c60nxtpbnxm0r" path="res://Resources/Background/top_bottom.png" id="9_2fyvu"]
 [ext_resource type="AudioStream" uid="uid://vkqh2wssp7cw" path="res://Resources/Sound Effects/SCJ24Frog_SFX_Note Collection.wav" id="10_h6cyb"]
-[ext_resource type="Script" path="res://Scene/NoteCollectionPlayer.gd" id="11_wqek8"]
+[ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gttr6"]
 atlas = ExtResource("4_oc8cn")
@@ -244,7 +243,6 @@ position = Vector2(-30.4, 0)
 
 [node name="HurtBoxCollider" type="CollisionShape2D" parent="Beetle/BeetleNotePicker/HurtBox"]
 position = Vector2(27, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xnirx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Beetle/BeetleNotePicker/HurtBox/HurtBoxCollider"]
@@ -256,18 +254,12 @@ texture = ExtResource("4_cygtt")
 [node name="Background" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_as_relative = false
-position = Vector2(575.2, 324)
-scale = Vector2(1.12656, 0.84375)
+position = Vector2(-0.399944, -7.99994)
+scale = Vector2(2.25078, 1.6875)
 texture = ExtResource("9_2fyvu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1.54995, 3.13191)
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_2ks02")
-volume_db = -6.0
-autoplay = true
-bus = &"Music"
+zoom = Vector2(0.5, 0.5)
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_h6cyb")

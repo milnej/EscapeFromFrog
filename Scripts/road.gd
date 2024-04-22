@@ -1,16 +1,20 @@
 extends Node2D
 
 @onready var note_conductor = $NoteConductor
-var note_scene = preload("res://note.tscn")
+var note_scene = preload("res://Scene/note.tscn")
 var breakable_flesh = preload("res://Scene/breakable_flesh.tscn")
 var unbreakable_flesh = preload("res://Scene/unbreakable_flesh.tscn")
 var acid = preload("res://Scene/acid.tscn")
 var beetle_trapped = preload("res://Scene/beetle_trapped.tscn")
 
 var row_count = 0
-var beat_map_file_name = "res://BeatMaps/beatMap1.txt"
+var beat_map_file_name = "res://BeatMaps/easy.txt"
 var note_move_speed
 var bpm
+
+var time_begin
+var time_delay
+var time_last_frame = 0
 
 const DIST_BETWEEN_NOTES = 400
 
@@ -34,6 +38,9 @@ func calculate_note_speed():
 	note_move_speed = note_length/beat_in_seconds
 
 func _ready():
+	time_begin = Time.get_ticks_usec()
+	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
+	$AudioStreamPlayer.play()
 
 	var beat_map = parse_beat_map(beat_map_file_name)
 
@@ -43,7 +50,19 @@ func _ready():
 		add_row(beat_map[i])
 
 func _process(delta):
-	note_conductor.position += Vector2(-note_move_speed*delta, 0)
+	# Obtain from ticks.
+	var current_songtime = (Time.get_ticks_usec() - time_begin) / 1000000.0
+	# Compensate for latency.
+	current_songtime -= time_delay
+	# May be below 0 (did not begin yet).
+	current_songtime = max(0, current_songtime)
+	#print("Time is: ", time)
+	
+	var delta_songtime = time_last_frame - current_songtime
+	
+	note_conductor.position += Vector2(-note_move_speed * -delta_songtime, 0)
+	
+	time_last_frame = current_songtime
 
 func add_row(row):
 	for i in range(len(row)):

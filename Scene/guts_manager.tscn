@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgttcuwen5s12"]
 
-[ext_resource type="Script" path="res://GutsManager.gd" id="1_etpkb"]
+[ext_resource type="Script" path="res://Scripts/GutsManager.gd" id="1_etpkb"]
 
 [node name="GutsManager" type="Node"]
 script = ExtResource("1_etpkb")
