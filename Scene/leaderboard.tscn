@@ -1,6 +1,158 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj4yhafu2ow6f"]
+[gd_scene load_steps=3 format=3 uid="uid://dxmwd4nb328eo"]
 
-[ext_resource type="Script" path="res://Scripts/leaderboard.gd" id="1_3ruo2"]
+[ext_resource type="Script" path="res://Scene/leaderboard.gd" id="1_2eia2"]
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="1_ke3fk"]
 
-[node name="Leaderboard" type="Node"]
-script = ExtResource("1_3ruo2")
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2eia2")
+
+[node name="LeaderboardTitle" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 111.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="LeaderboardTitle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score1" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 104.0
+offset_right = 574.0
+offset_bottom = 160.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = 160.0
+offset_right = 575.0
+offset_bottom = 216.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = 216.0
+offset_right = 575.0
+offset_bottom = 272.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 272.0
+offset_right = 574.0
+offset_bottom = 328.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score5" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = 330.0
+offset_right = 575.0
+offset_bottom = 386.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score6" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = 416.0
+offset_right = 575.0
+offset_bottom = 472.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ke3fk")
+theme_override_font_sizes/font_size = 30
+text = "YOUR SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
