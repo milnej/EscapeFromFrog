@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=49 format=3 uid="uid://dm4fl00uijsbt"]
 
 [ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://Scene/guts_manager.tscn" id="1_hg52k"]
 [ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_deiaa"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://vkqh2wssp7cw" path="res://Resources/Sound Effects/SCJ24Frog_SFX_Note Collection.wav" id="10_h6cyb"]
 [ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
 [ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
+[ext_resource type="Texture2D" uid="uid://bqosa3xil1pul" path="res://Resources/Animations/beetleprotag_backwall_attack-Sheet.png" id="12_mgwje"]
 [ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ppo1a"]
@@ -43,6 +44,30 @@ region = Rect2(129, 0, 43, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mw4t7"]
 atlas = ExtResource("4_oc8cn")
 region = Rect2(172, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiwxr"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(0, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tsui"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(43, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jyuv"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(86, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk52s"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(129, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x5xd"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(172, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0obj"]
+atlas = ExtResource("12_mgwje")
+region = Rect2(215, 0, 43, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqvwc"]
 atlas = ExtResource("5_ix82o")
@@ -116,6 +141,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiwxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tsui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jyuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk52s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x5xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0obj")
+}],
+"loop": false,
+"name": &"back_wall_attack",
 "speed": 15.0
 }, {
 "frames": [{
@@ -505,7 +553,7 @@ texture_filter = 1
 position = Vector2(-53.45, 1.78814e-07)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_3wpxy")
-animation = &"back_wall_running"
+animation = &"back_wall_attack"
 autoplay = "back_wall_running"
 
 [node name="HitBox" type="Area2D" parent="Beetle"]
