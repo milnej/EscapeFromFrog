@@ -44,6 +44,30 @@ region = Rect2(129, 0, 43, 32)
 atlas = ExtResource("4_oc8cn")
 region = Rect2(172, 0, 43, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8xwg"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(0, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwybl"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(43, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqs0q"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(86, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl370"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(129, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvbqt"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(172, 0, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns7q5"]
+atlas = ExtResource("7_j27ps")
+region = Rect2(215, 0, 43, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqvwc"]
 atlas = ExtResource("5_ix82o")
 region = Rect2(0, 0, 43, 32)
@@ -116,6 +140,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8xwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwybl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqs0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl370")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvbqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns7q5")
+}],
+"loop": false,
+"name": &"back_wall_attack",
 "speed": 15.0
 }, {
 "frames": [{
@@ -505,7 +552,7 @@ texture_filter = 1
 position = Vector2(-53.45, 1.78814e-07)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_3wpxy")
-animation = &"back_wall_running"
+animation = &"attack"
 autoplay = "back_wall_running"
 
 [node name="HitBox" type="Area2D" parent="Beetle"]
