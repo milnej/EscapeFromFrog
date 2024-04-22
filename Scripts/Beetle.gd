@@ -43,10 +43,7 @@ func _set_sprite():
 			$AnimatedSprite2D.animation = "running"
 	if (is_attacking):
 		beetle_note_picker.scale = Vector2(2.8, 2.8)
-		if row == ROW.MIDDLE:
-			$AnimatedSprite2D.animation = "back_wall_attack"
-		else:
-			$AnimatedSprite2D.animation = "attack"
+		$AnimatedSprite2D.animation = "attack"
 	else:
 		beetle_note_picker.scale = Vector2(3.0, 3.0)
 	$AnimatedSprite2D.play()
