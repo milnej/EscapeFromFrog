@@ -12,15 +12,15 @@ class Ranking:
 	
 	
 func ranks_to_text(i):
-	return scores[i].name + " - " + str(scores[i].score)
+	return str(i+1) + ".   " + scores[i].name + " - " + str(scores[i].score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	scores.append(Ranking.new("HERC", 3500))
-	scores.append(Ranking.new("STAG", 2500))
-	scores.append(Ranking.new("LADY", 1750))
-	scores.append(Ranking.new("DUNG", 1000))
-	scores.append(Ranking.new("LRVA", 500))
+	scores.append(Ranking.new("HERC", 8000))
+	scores.append(Ranking.new("STAG", 5500))
+	scores.append(Ranking.new("LADY", 3500))
+	scores.append(Ranking.new("DUNG", 2000))
+	scores.append(Ranking.new("LRVA", 1000))
 	#add_score(69)
 	#ranks_to_console()
 
