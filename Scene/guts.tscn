@@ -5,7 +5,6 @@
 [ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="2_qvj4e"]
 [ext_resource type="Script" path="res://Scripts/Beetle.gd" id="2_vfcls"]
 [ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
-[ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
 [ext_resource type="Script" path="res://Scripts/road.gd" id="4_kkjwp"]
 [ext_resource type="Texture2D" uid="uid://dpwopr0ax5tg7" path="res://Resources/Animations/beetle_attack.png" id="4_oc8cn"]
 [ext_resource type="Texture2D" uid="uid://cx6s8571167nb" path="res://Resources/Sprites/barrier.png" id="5_4dpla"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
 [ext_resource type="Texture2D" uid="uid://bqosa3xil1pul" path="res://Resources/Animations/beetleprotag_backwall_attack-Sheet.png" id="12_mgwje"]
 [ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
+[ext_resource type="Texture2D" uid="uid://mtaoaimxspn3" path="res://Resources/Sprites/dark_ring.png" id="16_khxjx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ppo1a"]
 font = ExtResource("8_rlu1p")
@@ -579,8 +579,8 @@ shape = SubResource("RectangleShape2D_xnirx")
 [node name="Sprite2D" type="Sprite2D" parent="Beetle/BeetleNotePicker/HurtBox/HurtBoxCollider"]
 texture_filter = 1
 position = Vector2(3.09944e-06, 0)
-scale = Vector2(0.1005, 0.10325)
-texture = ExtResource("4_cygtt")
+scale = Vector2(0.0541666, 0.0556488)
+texture = ExtResource("16_khxjx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
