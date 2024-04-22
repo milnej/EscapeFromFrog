@@ -1,17 +1,23 @@
-[gd_scene load_steps=34 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=37 format=3 uid="uid://dm4fl00uijsbt"]
 
 [ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://Scene/guts_manager.tscn" id="1_hg52k"]
 [ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://Scene/road.tscn" id="2_b2kmn"]
-[ext_resource type="Texture2D" uid="uid://c2agobqvkvly2" path="res://Resources/Sprites/Blue.png" id="2_m43vk"]
+[ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_deiaa"]
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="2_hnbay"]
 [ext_resource type="Script" path="res://Scripts/Beetle.gd" id="2_vfcls"]
 [ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
 [ext_resource type="Texture2D" uid="uid://dpwopr0ax5tg7" path="res://Resources/Animations/beetle_attack.png" id="4_oc8cn"]
 [ext_resource type="Texture2D" uid="uid://dcewyxro0t48i" path="res://Resources/Animations/beetle_back_wall_walk.png" id="5_ix82o"]
 [ext_resource type="Script" path="res://Scripts/BeetleNotePicker.gd" id="6_rirdj"]
-[ext_resource type="Texture2D" uid="uid://c60nxtpbnxm0r" path="res://Resources/Background/top_bottom.png" id="9_2fyvu"]
 [ext_resource type="AudioStream" uid="uid://vkqh2wssp7cw" path="res://Resources/Sound Effects/SCJ24Frog_SFX_Note Collection.wav" id="10_h6cyb"]
 [ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
+[ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
+[ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
+
+[sub_resource type="Theme" id="Theme_y51os"]
+default_font = ExtResource("2_hnbay")
+default_font_size = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gttr6"]
 atlas = ExtResource("4_oc8cn")
@@ -165,16 +171,23 @@ size = Vector2(6.80001, 6.4)
 
 [node name="Guts" type="Node2D"]
 
-[node name="GutsManager" parent="." instance=ExtResource("1_hg52k")]
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
-offset_right = 155.0
-offset_bottom = 144.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -72.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="TimerLabel" type="Label" parent="UI/Panel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,16 +197,26 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "TEST
 "
+label_settings = ExtResource("2_deiaa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="UI/Panel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 72.0
+theme = SubResource("Theme_y51os")
+
 [node name="Panel2" type="Panel" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -155.0
-offset_bottom = 144.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 128.0
+grow_horizontal = 2
 
 [node name="ScoreLabel" type="Label" parent="UI/Panel2"]
 unique_name_in_owner = true
@@ -206,8 +229,11 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "SCORE
 "
+label_settings = ExtResource("2_deiaa")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GutsManager" parent="." instance=ExtResource("1_hg52k")]
 
 [node name="Road" parent="." instance=ExtResource("2_b2kmn")]
 
@@ -219,29 +245,29 @@ script = ExtResource("2_vfcls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beetle"]
 texture_filter = 1
+position = Vector2(-53.45, 1.78814e-07)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_3wpxy")
 animation = &"back_wall_running"
 autoplay = "back_wall_running"
 
-[node name="Sprite2D" type="Sprite2D" parent="Beetle"]
-visible = false
-texture_filter = 1
-texture = ExtResource("2_m43vk")
-
 [node name="HitBox" type="Area2D" parent="Beetle"]
+position = Vector2(-19.85, -1)
 
 [node name="HitBoxCollider" type="CollisionShape2D" parent="Beetle/HitBox"]
 position = Vector2(-8.1, 1)
 shape = SubResource("RectangleShape2D_bx3a4")
 
 [node name="BeetleNotePicker" type="Node2D" parent="Beetle"]
-position = Vector2(30.4, 0)
+position = Vector2(30, 0)
+scale = Vector2(3, 3)
 script = ExtResource("6_rirdj")
 
 [node name="HurtBox" type="Area2D" parent="Beetle/BeetleNotePicker"]
 position = Vector2(-30.4, 0)
 
 [node name="HurtBoxCollider" type="CollisionShape2D" parent="Beetle/BeetleNotePicker/HurtBox"]
+modulate = Color(1, 1, 1, 0.752941)
 position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_xnirx")
 
@@ -251,13 +277,6 @@ position = Vector2(3.09944e-06, 0)
 scale = Vector2(0.1005, 0.10325)
 texture = ExtResource("4_cygtt")
 
-[node name="Background" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-z_as_relative = false
-position = Vector2(-0.399944, -7.99994)
-scale = Vector2(2.25078, 1.6875)
-texture = ExtResource("9_2fyvu")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
@@ -266,3 +285,19 @@ stream = ExtResource("10_h6cyb")
 volume_db = -9.0
 bus = &"SFX"
 script = ExtResource("11_wqek8")
+
+[node name="Background" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Cieling" type="Sprite2D" parent="Background"]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(0, -4.00001)
+scale = Vector2(36, 20.375)
+texture = ExtResource("12_1iyel")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(36, 20.625)
+texture = ExtResource("13_tpvut")

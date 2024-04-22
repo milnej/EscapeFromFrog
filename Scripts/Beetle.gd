@@ -42,10 +42,10 @@ func _set_sprite():
 		else:
 			$AnimatedSprite2D.animation = "running"
 	if (is_attacking):
-		beetle_note_picker.scale = Vector2(0.8, 0.8)
+		beetle_note_picker.scale = Vector2(2.8, 2.8)
 		$AnimatedSprite2D.animation = "attack"
 	else:
-		beetle_note_picker.scale = Vector2(1.0, 1.0)
+		beetle_note_picker.scale = Vector2(3.0, 3.0)
 	$AnimatedSprite2D.play()
 
 func _process_input():

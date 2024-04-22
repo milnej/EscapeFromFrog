@@ -1,39 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgfrkai27nid3"]
+[gd_scene load_steps=7 format=3 uid="uid://cgfrkai27nid3"]
 
 [ext_resource type="Script" path="res://Scripts/acid.gd" id="1_rx3qk"]
-[ext_resource type="Texture2D" uid="uid://bpmmbsww0mksg" path="res://Resources/Sprites/acidbubble.png" id="2_40raq"]
+[ext_resource type="Texture2D" uid="uid://crl0qok4kgrnh" path="res://Resources/Sprites/acid_spritesheet.png" id="2_xfgs7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf74h"]
-size = Vector2(96, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2osul"]
+atlas = ExtResource("2_xfgs7")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y4hh"]
-size = Vector2(384, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgiao"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucw00"]
 size = Vector2(128, 64)
 
-[node name="Note2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt0fb"]
+size = Vector2(1024, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkt5x"]
+size = Vector2(640, 64)
+
+[node name="Acid" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_rx3qk")
 points_value = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
 texture_filter = 1
-texture = ExtResource("2_40raq")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2osul")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
+[node name="Perfect" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 
-[node name="Perfect" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="Perfect" type="CollisionShape2D" parent="Perfect"]
 scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_yf74h")
+shape = SubResource("RectangleShape2D_ucw00")
 
-[node name="Nice" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-scale = Vector2(0.25, 0.25)
-shape = SubResource("RectangleShape2D_1y4hh")
+[node name="Nice" type="Area2D" parent="."]
+position = Vector2(32, 0)
 
-[node name="Okay" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-shape = SubResource("RectangleShape2D_dgiao")
+[node name="Nice" type="CollisionShape2D" parent="Nice"]
+position = Vector2(-32, 0)
+scale = Vector2(0.125, 0.125)
+shape = SubResource("RectangleShape2D_mt0fb")
 
-[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Okay" type="Area2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="Okay" type="CollisionShape2D" parent="Okay"]
+position = Vector2(-32, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xkt5x")

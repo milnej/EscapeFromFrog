@@ -37,6 +37,6 @@ func _input(event):
 
 func _process(delta):
 	if is_pressed:
-		self.scale = Vector2(0.9, 0.9)
+		self.scale = Vector2(2.9, 2.9)
 	else:
-		self.scale = Vector2(1.0, 1.0)
+		self.scale = Vector2(3.0, 3.0)

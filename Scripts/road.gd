@@ -41,6 +41,7 @@ func _ready():
 	time_begin = Time.get_ticks_usec()
 	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	$AudioStreamPlayer.play()
+	GlobalVars.song_length = $AudioStreamPlayer.stream.get_length()
 
 	var beat_map = parse_beat_map(beat_map_file_name)
 
@@ -58,6 +59,8 @@ func _process(delta):
 	current_songtime = max(0, current_songtime)
 	#print("Time is: ", time)
 	
+	GlobalVars.song_current_time = current_songtime
+	
 	var delta_songtime = time_last_frame - current_songtime
 	
 	note_conductor.position += Vector2(-note_move_speed * -delta_songtime, 0)
@@ -72,13 +75,13 @@ func add_row(row):
 func add_note(note_type, note_lane):
 	var note
 	match note_type:
-		"-":
+		"--":
 			return
 		"bf":
 			note = breakable_flesh.instantiate()
 		"uf":
 			note = unbreakable_flesh.instantiate()
-		"a":
+		"ac":
 			note = acid.instantiate()
 		"bt":
 			note = beetle_trapped.instantiate()

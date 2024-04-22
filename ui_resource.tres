@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d1aedhks83pga"]
+
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="1_omadw"]
+
+[resource]
+font = ExtResource("1_omadw")
+font_size = 32

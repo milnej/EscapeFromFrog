@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d8ki8ithukm8"]
 
 [ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://Scene/road.tscn" id="1_g0fle"]
-[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_91M4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="3_iyhct"]
+[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_90M4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="3_iyhct"]
 [ext_resource type="Script" path="res://Scripts/Manager.gd" id="4_b4uh3"]
 
 [node name="Game" type="Node2D"]
