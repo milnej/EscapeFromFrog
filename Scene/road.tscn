@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://be3odupd3c40n"]
+[gd_scene load_steps=9 format=3 uid="uid://be3odupd3c40n"]
 
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_6cq6f"]
 [ext_resource type="PackedScene" uid="uid://clg447qeer1wv" path="res://Scene/note_picker.tscn" id="2_01g0b"]
 [ext_resource type="Texture2D" uid="uid://cx6s8571167nb" path="res://Resources/Sprites/barrier.png" id="2_h0bfu"]
 [ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_90M4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="4_vaalp"]
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="5_rvmpm"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="6_pwa7v"]
+[ext_resource type="PackedScene" uid="uid://dyr43ch3cs6ij" path="res://Scene/ending_screen.tscn" id="7_031dh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppo1a"]
+font = ExtResource("5_rvmpm")
+font_size = 128
 
 [node name="Road" type="Node2D"]
 script = ExtResource("1_6cq6f")
@@ -43,6 +50,42 @@ position = Vector2(864, 288)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vaalp")
 
+[node name="CountInTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountInLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 151.0
+text = "TIMER"
+label_settings = SubResource("LabelSettings_ppo1a")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 392.0
+offset_bottom = 136.0
+theme = ExtResource("6_pwa7v")
+text = "START"
+
+[node name="Ending_Screen" parent="." instance=ExtResource("7_031dh")]
+visible = false
+scale = Vector2(3.645, 3.645)
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="CountInTimer" to="." method="_on_count_in_timer_timeout"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Ending_Screen/VBoxContainer/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+
 [editable path="NotePickerLeft"]
 [editable path="NotePickerMiddle"]
 [editable path="NotePickerRight"]
+[editable path="Ending_Screen"]

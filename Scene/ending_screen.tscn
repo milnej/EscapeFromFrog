@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyr43ch3cs6ij"]
+
+[ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_phyw1"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_udgge"]
+
+[node name="Ending_Screen" type="Control"]
+layout_mode = 3
+anchor_left = 0.007
+anchor_right = 1.007
+anchor_bottom = 1.0
+offset_left = -8.064
+offset_right = -8.06409
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -85.0
+offset_right = 171.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SONG COMPLETE!"
+label_settings = ExtResource("2_phyw1")
+
+[node name="SCORE" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SCORE:"
+label_settings = ExtResource("2_phyw1")
+
+[node name="Return To Main Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_udgge")
+text = "Main Menu"

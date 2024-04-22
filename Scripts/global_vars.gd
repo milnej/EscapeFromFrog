@@ -7,3 +7,5 @@ var bottom_beetle_pos : Vector2
 
 var song_length
 var song_current_time: float  = 0
+
+var score: int = 0
