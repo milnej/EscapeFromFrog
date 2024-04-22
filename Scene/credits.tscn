@@ -50,4 +50,6 @@ layout_mode = 2
 theme = ExtResource("3_2mqbv")
 text = "Back"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

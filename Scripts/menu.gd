@@ -7,7 +7,7 @@ extends Control
 
 func _on_start_pressed():
 	#get_tree().change_scene_to_file("res://Scene/guts.tscn")
-	difficulty_select.visible = true
+	difficulty_select.set_visible_status(true)
 	start.visible = false
 
 func _on_quit_pressed():

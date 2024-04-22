@@ -4,7 +4,7 @@ var guts_manager: Node
 var sfx_player: NoteCollectionPlayer
 @export var line: int
 @export var note_number: int
-@export var points_value: int = 25
+@export var points_value: int = 100
 var note_position: int  = 0
 var is_colliding_okay: bool = false
 var is_colliding_nice: bool = false

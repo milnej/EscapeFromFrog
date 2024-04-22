@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://vkqh2wssp7cw" path="res://Resources/Sound Effects/SCJ24Frog_SFX_Note Collection.wav" id="10_h6cyb"]
 [ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
 [ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
-[ext_resource type="Texture2D" uid="uid://bqosa3xil1pul" path="res://Resources/Animations/beetleprotag_backwall_attack-Sheet.png" id="12_mgwje"]
+[ext_resource type="Texture2D" path="res://Resources/Animations/beetleprotag_backwall_attack-Sheet.png" id="12_mgwje"]
 [ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
 [ext_resource type="Texture2D" uid="uid://mtaoaimxspn3" path="res://Resources/Sprites/dark_ring.png" id="16_khxjx"]
 
