@@ -3,7 +3,7 @@ extends Node2D
 @onready var note_conductor = $NoteConductor
 @onready var count_in_timer = $CountInTimer
 @onready var count_in_label = $Control/CountInLabel
-@onready var ending_screen = $Ending_Screen
+@onready var ending_screen = $CanvasLayer/Ending_Screen
 var note_scene = preload("res://Scene/note.tscn")
 var breakable_flesh = preload("res://Scene/breakable_flesh.tscn")
 var unbreakable_flesh = preload("res://Scene/unbreakable_flesh.tscn")
@@ -116,7 +116,7 @@ func _on_button_pressed():
 
 func _on_audio_stream_player_finished():
 	ending_screen.visible = true
-	$Ending_Screen/Leaderboard.add_score(GlobalVars.score)
+	$CanvasLayer/Ending_Screen/Leaderboard.add_score(GlobalVars.score)
 	#$Ending_Screen/VBoxContainer/SCORE.text = "SCORE: %d" % GlobalVars.score
 
 func _on_return_to_main_menu_pressed():

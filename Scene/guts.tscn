@@ -1,19 +1,28 @@
-[gd_scene load_steps=36 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=42 format=3 uid="uid://dm4fl00uijsbt"]
 
 [ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://Scene/guts_manager.tscn" id="1_hg52k"]
-[ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://Scene/road.tscn" id="2_b2kmn"]
 [ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_deiaa"]
 [ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="2_qvj4e"]
 [ext_resource type="Script" path="res://Scripts/Beetle.gd" id="2_vfcls"]
 [ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
+[ext_resource type="Script" path="res://Scripts/road.gd" id="4_kkjwp"]
 [ext_resource type="Texture2D" uid="uid://dpwopr0ax5tg7" path="res://Resources/Animations/beetle_attack.png" id="4_oc8cn"]
+[ext_resource type="Texture2D" uid="uid://cx6s8571167nb" path="res://Resources/Sprites/barrier.png" id="5_4dpla"]
 [ext_resource type="Texture2D" uid="uid://dcewyxro0t48i" path="res://Resources/Animations/beetle_back_wall_walk.png" id="5_ix82o"]
+[ext_resource type="PackedScene" uid="uid://clg447qeer1wv" path="res://Scene/note_picker.tscn" id="6_o24n5"]
 [ext_resource type="Script" path="res://Scripts/BeetleNotePicker.gd" id="6_rirdj"]
+[ext_resource type="AudioStream" uid="uid://dscgekfsiivcj" path="res://Resources/Music/198bpm_90M4-4_GwaGwasSillyLittleStomach_ForReallyRealThisTimeTM.wav" id="7_2wpki"]
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="8_rlu1p"]
+[ext_resource type="Script" path="res://Scripts/leaderboard.gd" id="9_pi5km"]
 [ext_resource type="AudioStream" uid="uid://vkqh2wssp7cw" path="res://Resources/Sound Effects/SCJ24Frog_SFX_Note Collection.wav" id="10_h6cyb"]
 [ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
 [ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
 [ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppo1a"]
+font = ExtResource("8_rlu1p")
+font_size = 128
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gttr6"]
 atlas = ExtResource("4_oc8cn")
@@ -270,25 +279,220 @@ vertical_alignment = 1
 
 [node name="GutsManager" parent="." instance=ExtResource("1_hg52k")]
 
-[node name="Road" parent="." instance=ExtResource("2_b2kmn")]
+[node name="Road" type="Node2D" parent="."]
 z_index = 1
+script = ExtResource("4_kkjwp")
 
-[node name="Sprite2D" parent="Road" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Road"]
+modulate = Color(0.92549, 0.596078, 0.65098, 1)
 z_as_relative = false
+texture_filter = 1
+position = Vector2(-24, 8)
+scale = Vector2(38.7398, 142.187)
+texture = ExtResource("5_4dpla")
 
-[node name="AudioStreamPlayer" parent="Road" index="5"]
+[node name="NotePickerLeft" parent="Road" instance=ExtResource("6_o24n5")]
+position = Vector2(-159, 104)
+metadata/_edit_group_ = true
+
+[node name="NotePickerMiddle" parent="Road" instance=ExtResource("6_o24n5")]
+modulate = Color(0.25098, 1, 1, 1)
+position = Vector2(-159, 288)
+note_number = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Road/NotePickerMiddle" index="1"]
+modulate = Color(0.121569, 0.494118, 0.501961, 1)
+
+[node name="NotePickerRight" parent="Road" instance=ExtResource("6_o24n5")]
+position = Vector2(-160, 479)
+scale = Vector2(1.00296, 1.02475)
+note_number = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Road/NotePickerRight" index="1"]
+modulate = Color(1, 0.227451, 0.2, 1)
+
+[node name="NoteConductor" type="Node2D" parent="Road"]
+position = Vector2(864, 288)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Road"]
+stream = ExtResource("7_2wpki")
 volume_db = -6.0
 
-[node name="Button" parent="Road/Control" index="1"]
-offset_left = 0.0
-offset_right = 400.0
+[node name="CountInTimer" type="Timer" parent="Road"]
+wait_time = 3.0
+one_shot = true
 
-[node name="Ending_Screen" parent="Road" index="8"]
-offset_left = 384.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Road"]
+
+[node name="Ending_Screen" type="Control" parent="Road/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchor_left = 0.007
+anchor_right = 1.007
+anchor_bottom = 1.0
+offset_left = 375.936
 offset_top = 176.0
-offset_right = 384.0
+offset_right = 375.936
 offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2.215, 2.215)
+
+[node name="Panel" type="Panel" parent="Road/CanvasLayer/Ending_Screen"]
+z_index = 1
+layout_mode = 2
+offset_left = 9.0
+offset_top = -26.0
+offset_right = 163.0
+offset_bottom = 159.0
+
+[node name="Leaderboard" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen"]
+top_level = true
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -203.5
+offset_right = 171.0
+offset_bottom = 203.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("9_pi5km")
+
+[node name="Title" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+text = "SONG COMPLETE!"
+label_settings = ExtResource("2_deiaa")
+horizontal_alignment = 1
+
+[node name="LeaderboardTitle" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/LeaderboardTitle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score1" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score2" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score3" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score4" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score5" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score6" type="VBoxContainer" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard/Score6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rlu1p")
+theme_override_font_sizes/font_size = 30
+text = "YOUR SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SCORE" type="Label" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+visible = false
+layout_mode = 2
+text = "SCORE:"
+label_settings = ExtResource("2_deiaa")
+
+[node name="Return To Main Menu" type="Button" parent="Road/CanvasLayer/Ending_Screen/Leaderboard"]
+layout_mode = 2
+theme = ExtResource("2_qvj4e")
+text = "Main Menu"
+
+[node name="Control" type="Control" parent="Road"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountInLabel" type="Label" parent="Road/Control"]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 151.0
+text = "TIMER"
+label_settings = SubResource("LabelSettings_ppo1a")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Road/Control"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 136.0
+theme = ExtResource("2_qvj4e")
+text = "START"
 
 [node name="Beetle" type="Node2D" parent="."]
 z_index = 5
@@ -355,8 +559,11 @@ position = Vector2(0, -4.00001)
 scale = Vector2(25, 20)
 texture = ExtResource("13_tpvut")
 
-[editable path="Road"]
+[connection signal="finished" from="Road/AudioStreamPlayer" to="Road" method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="Road/CountInTimer" to="Road" method="_on_count_in_timer_timeout"]
+[connection signal="pressed" from="Road/CanvasLayer/Ending_Screen/Leaderboard/Return To Main Menu" to="Road" method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="Road/Control/Button" to="Road" method="_on_button_pressed"]
+
 [editable path="Road/NotePickerLeft"]
 [editable path="Road/NotePickerMiddle"]
 [editable path="Road/NotePickerRight"]
-[editable path="Road/Ending_Screen"]
