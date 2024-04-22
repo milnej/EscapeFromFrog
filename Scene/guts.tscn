@@ -553,7 +553,7 @@ texture_filter = 1
 position = Vector2(-53.45, 1.78814e-07)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_3wpxy")
-animation = &"back_wall_attack"
+animation = &"attack"
 autoplay = "back_wall_running"
 
 [node name="HitBox" type="Area2D" parent="Beetle"]

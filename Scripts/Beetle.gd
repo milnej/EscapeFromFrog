@@ -36,7 +36,7 @@ func _set_sprite():
 			$AnimatedSprite2D.flip_v = false
 		_:
 			pass
-	if (!$AnimatedSprite2D.is_playing() || $AnimatedSprite2D.animation != "attack"):
+	if (!$AnimatedSprite2D.is_playing() || ($AnimatedSprite2D.animation != "attack" && $AnimatedSprite2D.animation != "back_wall_attack")):
 		if row == ROW.MIDDLE:
 			$AnimatedSprite2D.animation = "back_wall_running"
 		else:
