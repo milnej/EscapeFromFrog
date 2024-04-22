@@ -1,45 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctum5q5u2t5nd"]
+[gd_scene load_steps=4 format=3 uid="uid://ctum5q5u2t5nd"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_s2bg6"]
+[ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_plkce"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_2mqbv"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_left = 0.007
+anchor_right = 1.007
 anchor_bottom = 1.0
+offset_left = -8.064
+offset_right = -8.06409
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2bg6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -56.0
-offset_top = 136.0
-offset_right = 51.0
-offset_bottom = 351.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.012
+anchor_right = 1.0
+anchor_bottom = 0.988
+offset_left = 404.936
+offset_top = 261.224
+offset_right = -434.0
+offset_bottom = 13.776
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Score Jam 29"
+label_settings = ExtResource("2_plkce")
 
 [node name="Developers" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Dev Team
+text = "Dev Team:
+
 William Bertiz
-Adejuwon
+Adejuwon Fasanya
 James Milne
 Shane Pierre
 Eric Nelson"
-metadata/_edit_lock_ = true
+label_settings = ExtResource("2_plkce")
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_2mqbv")
 text = "Back"
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 2
-offset_left = -56.0
-offset_top = 16.0
-offset_right = 51.0
-offset_bottom = 39.0
-grow_horizontal = 2
-text = "Score Jam 29"
 
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

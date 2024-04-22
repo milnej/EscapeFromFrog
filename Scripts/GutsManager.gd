@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	
 	#timer_label.text = "%.2f" % _run_time
 	progress_bar.value = GlobalVars.song_current_time
-	score_label.text = "Score: %d\n Combo: %d" % [_score, _combo]
+	score_label.text = "Combo: %d | Score: %d" % [_score, _combo]
 
 func _add_score(points: int) -> void:
 	var combo_bonus = (points / 100) * (_combo / 5)

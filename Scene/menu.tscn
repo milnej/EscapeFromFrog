@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://l8bqq84h0gc8"]
+[gd_scene load_steps=7 format=3 uid="uid://l8bqq84h0gc8"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_jqkw4"]
 [ext_resource type="PackedScene" uid="uid://ctum5q5u2t5nd" path="res://Scene/credits.tscn" id="2_00dps"]
+[ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_joh5c"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_i1q65"]
 [ext_resource type="PackedScene" uid="uid://couokif385oo0" path="res://Scene/settings.tscn" id="3_xtoak"]
 [ext_resource type="AudioStream" uid="uid://ds1kt0p4qwqe5" path="res://Resources/Music/SCJ2024_GwaGwasSillyLittleStomach_BossaNova.wav" id="4_ufey1"]
 
@@ -18,7 +20,6 @@ script = ExtResource("1_jqkw4")
 start = NodePath("Start")
 credits = NodePath("Credits")
 settings = NodePath("Settings")
-metadata/_edit_lock_ = true
 
 [node name="Start" type="Control" parent="."]
 layout_mode = 1
@@ -47,8 +48,8 @@ alignment = 1
 [node name="Title" type="Label" parent="Start/VBoxContainer2"]
 layout_mode = 2
 text = "Escape From Gua-Gua"
+label_settings = ExtResource("2_joh5c")
 horizontal_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Start"]
 layout_mode = 1
@@ -68,25 +69,31 @@ size_flags_vertical = 4
 
 [node name="Start" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_i1q65")
 text = "Start"
 
 [node name="Settings" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_i1q65")
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_i1q65")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Start/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_i1q65")
 text = "Quit"
 
 [node name="Credits" parent="." instance=ExtResource("2_00dps")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 8.0
 offset_top = -236.0

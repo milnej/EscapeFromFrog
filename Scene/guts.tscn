@@ -1,9 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://dm4fl00uijsbt"]
+[gd_scene load_steps=36 format=3 uid="uid://dm4fl00uijsbt"]
 
 [ext_resource type="PackedScene" uid="uid://bgttcuwen5s12" path="res://Scene/guts_manager.tscn" id="1_hg52k"]
 [ext_resource type="PackedScene" uid="uid://be3odupd3c40n" path="res://Scene/road.tscn" id="2_b2kmn"]
 [ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_deiaa"]
-[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="2_hnbay"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="2_qvj4e"]
 [ext_resource type="Script" path="res://Scripts/Beetle.gd" id="2_vfcls"]
 [ext_resource type="Texture2D" uid="uid://0awxgmypcl67" path="res://Resources/Sprites/beetle_run.png" id="3_rg1yr"]
 [ext_resource type="Texture2D" uid="uid://bro6wr6ndejh7" path="res://Resources/Background/Yellow.png" id="4_cygtt"]
@@ -14,10 +14,6 @@
 [ext_resource type="Script" path="res://Scripts/NoteCollectionPlayer.gd" id="11_wqek8"]
 [ext_resource type="Texture2D" uid="uid://bfdlmsvohx2mh" path="res://Resources/Background/ceiling.png" id="12_1iyel"]
 [ext_resource type="Texture2D" uid="uid://ctku48is1ram7" path="res://Resources/Background/floor.png" id="13_tpvut"]
-
-[sub_resource type="Theme" id="Theme_y51os"]
-default_font = ExtResource("2_hnbay")
-default_font_size = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gttr6"]
 atlas = ExtResource("4_oc8cn")
@@ -207,7 +203,7 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 72.0
-theme = SubResource("Theme_y51os")
+theme = ExtResource("2_qvj4e")
 
 [node name="Panel2" type="Panel" parent="UI"]
 anchors_preset = 5
@@ -215,7 +211,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -256.0
 offset_right = 256.0
-offset_bottom = 128.0
+offset_bottom = 64.0
 grow_horizontal = 2
 
 [node name="ScoreLabel" type="Label" parent="UI/Panel2"]

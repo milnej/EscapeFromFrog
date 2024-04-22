@@ -61,9 +61,9 @@ func _process(delta):
 	
 	GlobalVars.song_current_time = current_songtime
 	
-	var delta_songtime = time_last_frame - current_songtime
+	var delta_songtime = current_songtime - time_last_frame 
 	
-	note_conductor.position += Vector2(-note_move_speed * -delta_songtime, 0)
+	note_conductor.position += Vector2(-note_move_speed * (delta_songtime), 0)
 	
 	time_last_frame = current_songtime
 
