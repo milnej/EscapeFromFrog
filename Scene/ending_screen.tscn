@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyr43ch3cs6ij"]
+[gd_scene load_steps=5 format=3 uid="uid://dyr43ch3cs6ij"]
 
+[ext_resource type="Script" path="res://Scripts/leaderboard.gd" id="1_qlttg"]
 [ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_phyw1"]
+[ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="2_xrf7i"]
 [ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_udgge"]
 
 [node name="Ending_Screen" type="Control"]
@@ -13,7 +15,8 @@ offset_right = -8.06409
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Leaderboard" type="VBoxContainer" parent="."]
+z_index = 5
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,23 +24,117 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -85.0
+offset_top = -203.5
 offset_right = 171.0
-offset_bottom = 85.0
+offset_bottom = 203.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_qlttg")
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="Leaderboard"]
 layout_mode = 2
 text = "SONG COMPLETE!"
 label_settings = ExtResource("2_phyw1")
+horizontal_alignment = 1
 
-[node name="SCORE" type="Label" parent="VBoxContainer"]
+[node name="LeaderboardTitle" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Leaderboard/LeaderboardTitle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score1" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score2" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score3" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score4" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score5" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score6" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard/Score6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xrf7i")
+theme_override_font_sizes/font_size = 30
+text = "YOUR SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SCORE" type="Label" parent="Leaderboard"]
+visible = false
 layout_mode = 2
 text = "SCORE:"
 label_settings = ExtResource("2_phyw1")
 
-[node name="Return To Main Menu" type="Button" parent="VBoxContainer"]
+[node name="Return To Main Menu" type="Button" parent="Leaderboard"]
 layout_mode = 2
 theme = ExtResource("3_udgge")
 text = "Main Menu"

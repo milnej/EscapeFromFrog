@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxmwd4nb328eo"]
 
-[ext_resource type="Script" path="res://Scene/leaderboard.gd" id="1_2eia2"]
+[ext_resource type="Script" path="res://Scripts/leaderboard.gd" id="1_2eia2"]
 [ext_resource type="FontFile" uid="uid://cuw54btg0e2j0" path="res://Resources/SuperFunnel-p7nmD.ttf" id="1_ke3fk"]
 
 [node name="Leaderboard" type="Control"]

@@ -11,7 +11,7 @@ var acid = preload("res://Scene/acid.tscn")
 var beetle_trapped = preload("res://Scene/beetle_trapped.tscn")
 
 var row_count = 0
-var beat_map_file_name = "res://BeatMaps/easy.txt"
+var beat_map_file_name# = "res://BeatMaps/easy.txt"
 var note_move_speed
 var bpm
 var current_road_state: ROAD_STATE = ROAD_STATE.COUNT_IN
@@ -48,7 +48,7 @@ func calculate_note_speed():
 
 func _ready():
 	GlobalVars.song_length = $AudioStreamPlayer.stream.get_length()
-	
+	beat_map_file_name = GlobalVars.beatmap
 	var beat_map = parse_beat_map(beat_map_file_name)
 
 	calculate_note_speed()
@@ -116,7 +116,8 @@ func _on_button_pressed():
 
 func _on_audio_stream_player_finished():
 	ending_screen.visible = true
-	$Ending_Screen/VBoxContainer/SCORE.text = "SCORE: %d" % GlobalVars.score
+	$Ending_Screen/Leaderboard.add_score(GlobalVars.score)
+	#$Ending_Screen/VBoxContainer/SCORE.text = "SCORE: %d" % GlobalVars.score
 
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Scene/menu.tscn")

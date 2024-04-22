@@ -41,8 +41,6 @@ func _process(delta: float) -> void:
 	
 	#timer_label.text = "%.2f" % _run_time
 	progress_bar.value = GlobalVars.song_current_time
-	if progress_bar.value >= progress_bar.max_value - 10: 
-		progress_bar.value = progress_bar.max_value
 	score_label.text = "Combo: %d | Score: %d" % [_combo, _score]
 
 func _add_score(points: int) -> void:

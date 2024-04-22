@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://310lu1lh3i0i"]
+
+[ext_resource type="Script" path="res://Scene/difficulty_select.gd" id="1_wnfut"]
+[ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_86fv8"]
+
+[node name="Difficulty Select" type="Control"]
+layout_mode = 3
+anchor_left = 0.007
+anchor_right = 1.007
+anchor_bottom = 1.0
+offset_left = -8.064
+offset_right = -8.06409
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnfut")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -187.5
+offset_right = 130.0
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_86fv8")
+text = "Select Difficulty
+"
+horizontal_alignment = 1
+
+[node name="Easy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_86fv8")
+text = "Easy"
+
+[node name="Medium" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_86fv8")
+text = "Medium"
+
+[node name="Hard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_86fv8")
+text = "Hard
+"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_86fv8")
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

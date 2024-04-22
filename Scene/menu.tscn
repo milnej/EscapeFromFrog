@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://l8bqq84h0gc8"]
+[gd_scene load_steps=8 format=3 uid="uid://l8bqq84h0gc8"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_jqkw4"]
 [ext_resource type="PackedScene" uid="uid://ctum5q5u2t5nd" path="res://Scene/credits.tscn" id="2_00dps"]
 [ext_resource type="LabelSettings" uid="uid://d1aedhks83pga" path="res://ui_resource.tres" id="2_joh5c"]
 [ext_resource type="Theme" uid="uid://y5hchr7wrhs" path="res://ui_theme.tres" id="3_i1q65"]
 [ext_resource type="PackedScene" uid="uid://couokif385oo0" path="res://Scene/settings.tscn" id="3_xtoak"]
+[ext_resource type="PackedScene" uid="uid://310lu1lh3i0i" path="res://Scene/difficulty_select.tscn" id="4_ssc4f"]
 [ext_resource type="AudioStream" uid="uid://ds1kt0p4qwqe5" path="res://Resources/Music/SCJ2024_GwaGwasSillyLittleStomach_BossaNova.wav" id="4_ufey1"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("start", "credits", "settings")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("start", "credits", "settings", "difficulty_select")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,6 +21,7 @@ script = ExtResource("1_jqkw4")
 start = NodePath("Start")
 credits = NodePath("Credits")
 settings = NodePath("Settings")
+difficulty_select = NodePath("Difficulty Select")
 
 [node name="Start" type="Control" parent="."]
 layout_mode = 1
@@ -86,6 +88,10 @@ text = "Credits"
 layout_mode = 2
 theme = ExtResource("3_i1q65")
 text = "Quit"
+
+[node name="Difficulty Select" parent="." instance=ExtResource("4_ssc4f")]
+visible = false
+layout_mode = 1
 
 [node name="Credits" parent="." instance=ExtResource("2_00dps")]
 visible = false

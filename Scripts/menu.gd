@@ -3,9 +3,12 @@ extends Control
 @export var start: Control
 @export var credits: Control
 @export var settings: Control
+@export var difficulty_select: Control
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scene/guts.tscn")
+	#get_tree().change_scene_to_file("res://Scene/guts.tscn")
+	difficulty_select.visible = true
+	start.visible = false
 
 func _on_quit_pressed():
 	get_tree().quit()
